@@ -1,0 +1,126 @@
+scalar Date
+
+type Person{
+    id: ID!
+    birth_year: String!
+    eye_color: String!
+    films: [Film!]!
+    gender: String!
+    hair_color: String!
+    height: Float!
+    homeworld: Planet!
+    mass: Float!
+    name: String!
+    skin_color: String!
+    created: Date!
+    edited: Date!
+    species: [Specie!]!
+    starships: [Starship!]!
+    vehicles: [Vehicle!]!
+}
+
+type Film{
+    id: ID!
+    characters: [Person!]!
+    created: Date!
+    director: String!
+    edited: Date!
+    episode_id: ID!
+    opening_crawl: String!
+    planets: [Planet!]!
+    producer: String!
+    release_date: Date!
+    species: [Specie!]!
+    starships: [Starship!]!
+    title: String!
+    vehicles: [Vehicle!]!
+}
+
+type Starship{
+    id: ID!
+    MGLT: String!
+    cargo_capacity: Int!
+    consumables: String!
+    cost_in_credits: Int!
+    created: Date!
+    crew: Int!
+    edited: Date!
+    hyperdrive_rating: Float!
+    length: Float!
+    manufacturer: String!
+    max_atmosphering_speed: String!
+    model: String!
+    name: String!
+    passengers: Int!
+    films: [Film!]!
+    pilots: [Person!]!
+    starship_class: String!
+}
+type Vehicle{
+    id: ID!
+    cargo_capacity: Int!
+    consumables: String!
+    cost_in_credits: Int!
+    created: Date!
+    crew: Int!
+    edited: Date!
+    length: Float!
+    manufacturer: String!
+    max_atmosphering_speed: Float!
+    model: String!
+    name: String!
+    passengers: Int!
+    pilots: [Person!]!
+    films: [Film!]!
+    vehicle_class: String!
+}
+
+type Specie{
+    id: ID!
+    average_height: Float!
+    average_lifespan: Float!
+    classification: String!
+    created: Date!
+    designation: String!
+    edited: Date!
+    eye_colors: String!
+    hair_colors: String!
+    homeworld: Planet!
+    language: String!
+    name: String!
+    people: [Person!]!
+    films: [Film!]!
+    skin_colors: String!
+}
+
+type Planet {
+    id: ID!
+    climate: String!
+    created: Date!
+    diameter: Float!
+    edited: Date!
+    films: [Film!]!
+    gravity: Float!
+    name: String!
+    orbital_period: Float!
+    population: Int!
+    residents: [Person!]!
+    rotation_period: Float!
+    surface_water: Float!
+    terrain: String!
+}
+
+type Query{
+  person(id: ID!): Person
+  people(name: String): [Person!]!
+  film(id: ID!): Film!
+  films(title: String): [Film!]!
+  starship(id: ID!): Starship!
+  starships(name: String, model: String): [Starship!]!
+  vehicle(id: ID!): Vehicle!
+  vehicles(name: String, model: String): [Vehicle!]!
+  specie(id: ID): Specie!
+  species(name: String): [Specie!]!
+  planet(id: ID!): Planet!
+  planets(name: String): [Planet!]!
+}
