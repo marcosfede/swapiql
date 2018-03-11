@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "Awesome project developed with TypeORM.",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/node": "^8.0.29",
+    "axios": "^0.18.0",
     "dotenv-cli": "^1.4.0",
     "graphql-cli": "^2.15.8",
     "nodemon": "^1.17.1",
@@ -22,8 +24,7 @@
   "scripts": {
     "start": "dotenv -- nodemon -e ts,graphql -x ts-node src/index.ts",
     "dev": "npm-run-all --parallel start playground",
-    "debug":
-      "dotenv -- nodemon -e ts,graphql -x ts-node --inspect src/index.ts",
+    "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect src/index.ts",
     "playground": "graphql playground"
   }
 }
