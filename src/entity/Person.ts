@@ -41,9 +41,9 @@ export class Person extends Base {
 
   @ManyToMany(type => Specie, specie => specie.people)
   @JoinTable({ name: 'people_species' })
-  species: Promise<Specie[]>
+  specie: Promise<Specie[]>
 
-  @ManyToMany(type => Starship, starhip => starhip.pilots)
+  @ManyToMany(type => Starship, starship => starship.pilots)
   @JoinTable({ name: 'starship_pilots' })
   starships: Promise<Starship[]>
 

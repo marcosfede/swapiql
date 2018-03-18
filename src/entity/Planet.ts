@@ -10,6 +10,7 @@ import {
 import { Person } from './Person'
 import { Film } from './Film'
 import { Base } from './Base'
+import { Specie } from './Specie'
 
 @Entity()
 export class Planet extends Base {
@@ -33,6 +34,9 @@ export class Planet extends Base {
 
   @OneToMany(type => Person, person => person.homeworld)
   residents: Promise<Person[]>
+
+  @OneToMany(type => Specie, specie => specie.homeworld)
+  species: Promise<Specie[]>
 
   @ManyToMany(type => Film, film => film.planets)
   @JoinTable({ name: 'planets_films' })

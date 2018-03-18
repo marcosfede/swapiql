@@ -3,7 +3,7 @@ import { PrimaryGeneratedColumn, Column } from 'typeorm'
 export class Base {
   @PrimaryGeneratedColumn() id: number
 
-  @Column('datetime') created: Date
+  @Column('timestamp') created: Date
 
-  @Column('datetime') edited: Date
+  @Column('timestamp') edited: Date
 }
