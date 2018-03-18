@@ -5,13 +5,13 @@ import {
   ManyToMany,
   JoinTable,
   DiscriminatorValue,
+  ClassEntityChild,
 } from 'typeorm'
 import { Transport } from './Transport'
 import { Person } from './Person'
 import { Film } from './Film'
 
 @Entity()
-@DiscriminatorValue('vehicle')
 export class Vehicle extends Transport {
   @Column() vehicle_class: string
 

@@ -5,13 +5,13 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   DiscriminatorValue,
+  ClassEntityChild,
 } from 'typeorm'
 import { Transport } from './Transport'
 import { Person } from './Person'
 import { Film } from './Film'
 
 @Entity()
-@DiscriminatorValue('starship')
 export class Starship extends Transport {
   @Column() MGLT: string
 

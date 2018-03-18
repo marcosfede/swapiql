@@ -1,9 +1,6 @@
 import { Column, Entity, TableInheritance, DiscriminatorColumn, DiscriminatorValue } from 'typeorm'
 import { Base } from './Base';
 
-@Entity()
-@TableInheritance('class-table')
-@DiscriminatorColumn({name: 'type', type: 'varchar'})
 export abstract class Transport extends Base {
   @Column() cargo_capacity: number
 
