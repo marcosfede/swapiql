@@ -1,6 +1,6 @@
 import { PrimaryGeneratedColumn, Column } from 'typeorm'
 
-export class Base {
+export abstract class Base {
   @PrimaryGeneratedColumn() id: number
 
   @Column('timestamp') created: Date

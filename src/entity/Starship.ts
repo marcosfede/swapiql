@@ -1,33 +1,19 @@
-import {Column, ManyToMany, JoinTable, Entity, PrimaryGeneratedColumn} from "typeorm";
-import { Base } from "./Base";
-import {Person} from './Person'
-import { Film } from "./Film";
+import {
+  Column,
+  ManyToMany,
+  JoinTable,
+  Entity,
+  PrimaryGeneratedColumn,
+  DiscriminatorValue,
+} from 'typeorm'
+import { Transport } from './Transport'
+import { Person } from './Person'
+import { Film } from './Film'
 
 @Entity()
-export class Starship extends Base {
+@DiscriminatorValue('starship')
+export class Starship extends Transport {
   @Column() MGLT: string
-
-  @Column() cargo_capacity: number
-
-  @Column() consumables: string
-
-  @Column() cost_in_credits: number
-
-  @Column() crew: number
-
-  @Column() hyperdrive_rating: number
-
-  @Column() length: number
-  
-  @Column() manufacturer: string
-
-  @Column() max_atmosphering_speed: string
-
-  @Column() model: string
-
-  @Column() name: string
-
-  @Column() passengers: number
 
   @Column() starship_class: string
 
