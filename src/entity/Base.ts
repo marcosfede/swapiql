@@ -1,7 +1,7 @@
-import { PrimaryGeneratedColumn, Column } from 'typeorm'
+import { PrimaryGeneratedColumn, Column, PrimaryColumn } from 'typeorm'
 
 export abstract class Base {
-  @PrimaryGeneratedColumn() id: number
+  @PrimaryColumn() id: number
 
   @Column('timestamp') created: Date
 
