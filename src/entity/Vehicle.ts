@@ -4,33 +4,15 @@ import {
   Column,
   ManyToMany,
   JoinTable,
+  DiscriminatorValue,
 } from 'typeorm'
-import { Base } from './Base'
+import { Transport } from './Transport'
 import { Person } from './Person'
 import { Film } from './Film'
 
 @Entity()
-export class Vehicle extends Base {
-  @Column() cargo_capacity: number
-
-  @Column() consumables: string
-
-  @Column() cost_in_credits: number
-
-  @Column() crew: number
-
-  @Column() length: number
-
-  @Column() manufacturer: string
-
-  @Column() max_atmosphering_speed: string
-
-  @Column() model: string
-
-  @Column() name: string
-
-  @Column() passengers: number
-
+@DiscriminatorValue('vehicle')
+export class Vehicle extends Transport {
   @Column() vehicle_class: string
 
   @ManyToMany(type => Person, person => person.vehicles)
