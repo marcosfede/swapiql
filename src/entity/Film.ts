@@ -10,15 +10,15 @@ import { Specie } from './Specie'
 export class Film extends Base {
   @Column() title: string
 
-  @Column('smallint') episode_id: number
+  @Column() episode_id: number
 
-  @Column('text') opening_crawl: string
+  @Column() opening_crawl: string
 
   @Column() director: string
 
   @Column() producer: string
 
-  @Column('date') release_date: string
+  @Column() release_date: string
 
   @ManyToMany(type => Person, person => person.films)
   characters: Promise<Person[]>

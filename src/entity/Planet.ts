@@ -16,11 +16,11 @@ import { Specie } from './Specie'
 export class Planet extends Base {
   @Column() name: string
 
-  @Column() rotation_period: number
+  @Column() rotation_period: string
 
-  @Column() orbital_period: number
+  @Column() orbital_period: string
 
-  @Column() diameter: number
+  @Column() diameter: string
 
   @Column() climate: string
 
@@ -28,7 +28,7 @@ export class Planet extends Base {
 
   @Column() terrain: string
 
-  @Column('decimal') surface_water: number
+  @Column() surface_water: string
 
   @Column() population: string
 
@@ -39,6 +39,6 @@ export class Planet extends Base {
   species: Promise<Specie[]>
 
   @ManyToMany(type => Film, film => film.planets)
-  @JoinTable({ name: 'planets_films' })
+  @JoinTable()
   films: Promise<Film[]>
 }

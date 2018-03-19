@@ -1,16 +1,22 @@
-import { Column, Entity, TableInheritance, DiscriminatorColumn, DiscriminatorValue } from 'typeorm'
-import { Base } from './Base';
+import {
+  Column,
+  Entity,
+  TableInheritance,
+  DiscriminatorColumn,
+  DiscriminatorValue,
+} from 'typeorm'
+import { Base } from './Base'
 
 export abstract class Transport extends Base {
-  @Column() cargo_capacity: number
+  @Column() cargo_capacity: string
 
   @Column() consumables: string
 
-  @Column() cost_in_credits: number
+  @Column() cost_in_credits: string
 
   @Column() crew: string
 
-  @Column() length: number
+  @Column() length: string
 
   @Column() manufacturer: string
 
@@ -20,5 +26,5 @@ export abstract class Transport extends Base {
 
   @Column() name: string
 
-  @Column() passengers: number
+  @Column() passengers: string
 }

@@ -7,10 +7,10 @@ import {
   DiscriminatorValue,
   ClassEntityChild,
 } from 'typeorm'
+
 import { Transport } from './Transport'
 import { Person } from './Person'
 import { Film } from './Film'
-
 @Entity()
 export class Starship extends Transport {
   @Column() MGLT: string
@@ -18,10 +18,10 @@ export class Starship extends Transport {
   @Column() starship_class: string
 
   @ManyToMany(type => Person, person => person.starships)
-  @JoinTable({ name: 'people_starships' })
+  @JoinTable()
   pilots: Promise<Person[]>
 
   @ManyToMany(type => Film, film => film.starships)
-  @JoinTable({ name: 'planets_starships' })
+  @JoinTable()
   films: Promise<Film[]>
 }

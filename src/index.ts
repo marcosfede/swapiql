@@ -13,7 +13,7 @@ createConnection()
       resolvers,
     })
     server.express.use(compression())
-    
+
     server
       .start({ tracing: true, cacheControl: true })
       .then(() => console.log(`Server started`))

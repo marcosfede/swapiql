@@ -1,24 +1,42 @@
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
-import {films, people, vehicles, planets, species, starships, transport} from '../fixtures'
-import {Film, Person, Specie, Starship, Planet, Vehicle} from './entity'
-import {omit} from 'ramda'
+import {
+  films,
+  people,
+  vehicles,
+  planets,
+  species,
+  starships,
+  transport,
+} from '../fixtures'
+import { Film, Person, Specie, Starship, Planet, Vehicle } from './entity'
+import { omit, pick } from 'ramda'
 
-function loaddata(entity, data, omits, connection){
-  (data as any).forEach(async d => {
-    const entitydata = omit(omits, d.fields)
-    const _entity = await connection.manager.create(entity, {...entitydata, id: d.pk})
-    await connection.manager.save(_entity)
-  })
+function loaddata(entity, data, omits, connection) {
+  return connection
+    .createQueryBuilder()
+    .insert()
+    .into(entity)
+    .values(data.map(d => ({ ...omit(omits, d.fields), id: d.pk })))
+    .execute()
 }
-
-createConnection()
-  .then(async connection => {
-    loaddata(Film, films, ['starships', 'vehicles', 'planets', 'characters', 'species', 'homeland', 'pilots'], connection)
-    loaddata(Person, people, ['starships', 'vehicles', 'planets', 'characters', 'species', 'homeland', 'pilots'], connection)
-    loaddata(Specie, species, ['starships', 'vehicles', 'planets', 'characters', 'species', 'homeland', 'pilots'], connection)
-    loaddata(Starship, starships, ['starships', 'vehicles', 'planets', 'characters', 'species', 'homeland', 'pilots'], connection)
-    loaddata(Planet, planets, ['starships', 'vehicles', 'planets', 'characters', 'species', 'homeland', 'pilots'], connection)
-    loaddata(Vehicle, vehicles, ['starships', 'vehicles', 'planets', 'characters', 'species', 'homeland', 'pilots'], connection)
-  })
-  .catch(error => console.log(error))
+const relations = [
+  'starships',
+  'vehicles',
+  'planets',
+  'characters',
+  'species',
+  'pilots',
+  'homeworld',
+]
+console.log((films as any).map(d => ({ ...pick(relations, d.fields)})))
+// createConnection()
+//   .then(async connection => {
+    // await loaddata(Film, films, relations, connection)
+    // await loaddata(Person, people, relations, connection)
+    // await loaddata(Specie, species, relations, connection)
+    // await loaddata(Planet, planets, relations, connection)
+    // await loaddata(Starship, starships, relations, connection)
+    // await loaddata(Vehicle, vehicles, relations, connection)
+  // })
+  // .catch(error => console.log(error))

@@ -7,16 +7,16 @@ import {
   ManyToMany,
   JoinTable,
 } from 'typeorm'
+
 import { Base } from './Base'
 import { Person } from './Person'
 import { Planet } from './Planet'
 import { Film } from './Film'
-
 @Entity()
 export class Specie extends Base {
-  @Column() average_height: number
+  @Column() average_height: string
 
-  @Column() average_lifespan: number
+  @Column() average_lifespan: string
 
   @Column() classification: string
 
@@ -39,6 +39,6 @@ export class Specie extends Base {
   people: Promise<Person[]>
 
   @ManyToMany(type => Film, film => film.planets)
-  @JoinTable({ name: 'planets_films' })
+  @JoinTable()
   films: Promise<Film[]>
 }
