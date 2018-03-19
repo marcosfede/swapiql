@@ -1,0 +1,23 @@
+# import Person from 'person.graphql'
+# import Film from 'film.graphql'
+# import Planet from 'planet.graphql'
+# import Specie from 'specie.graphql'
+# import Starship from 'starship.graphql'
+# import Vehicle from 'vehicle.graphql'
+
+scalar Date
+
+type Query{
+  person(id: ID!): Person
+  people(name: String): [Person!]!
+  film(id: ID!): Film
+  films(title: String): [Film!]!
+  starship(id: ID!): Starship
+  starships(name: String, model: String): [Starship!]!
+  vehicle(id: ID!): Vehicle
+  vehicles(name: String, model: String): [Vehicle!]!
+  specie(id: ID): Specie
+  species(name: String): [Specie!]!
+  planet(id: ID!): Planet
+  planets(name: String): [Planet!]!
+}

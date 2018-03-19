@@ -5,12 +5,12 @@ import * as compression from 'compression'
 // import { ApolloEngine } from 'apollo-engine'
 import { importSchema } from 'graphql-import'
 
-import { resolvers } from './resolvers'
+import resolvers from './resolvers'
 
 createConnection()
   .then(async connection => {
     const server = new GraphQLServer({
-      typeDefs: importSchema('./src/schema.graphql'),
+      typeDefs: importSchema('./src/schema/schema.graphql'),
       resolvers,
     })
     server.express.use(compression())

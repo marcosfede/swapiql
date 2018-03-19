@@ -1,8 +1,25 @@
 import { getRepository } from 'typeorm'
-import { Person } from '../entity/Person'
+import { Person as PersonEntity } from '../entity/Person'
+import * as Film from './film'
+import * as Person from './person'
+import * as Planet from './planet'
+import * as Specie from './specie'
+import * as Starship from './starship'
+import * as Vehicle from './vehicle'
 
-export const resolvers = {
+export default {
   Query: {
-    person: async (_, { id }) => getRepository(Person).findOneById(id),
+    ...Film.queries,
+    ...Person.queries,
+    ...Planet.queries,
+    ...Specie.queries,
+    ...Starship.queries,
+    ...Vehicle.queries,
   },
+  Film: Film.fields,
+  Person: Person.fields,
+  Planet: Planet.fields,
+  Specie: Specie.fields,
+  Starship: Starship.fields,
+  Vehicle: Vehicle.fields
 }

@@ -29,7 +29,7 @@ export class Person extends Base {
 
   @ManyToMany(type => Film, film => film.characters)
   @JoinTable()
-  films: Promise<Film>[]
+  films: Promise<Film[]>
 
   @ManyToOne(type => Specie, specie => specie.people)
   specie: Promise<Specie>

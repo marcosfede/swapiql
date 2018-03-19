@@ -1,0 +1,16 @@
+type Planet {
+    id: ID!
+    climate: String!
+    created: Date!
+    diameter: Float!
+    edited: Date!
+    films: [Film!]!
+    gravity: Float!
+    name: String!
+    orbital_period: Float!
+    population: Int!
+    residents: [Person!]!
+    rotation_period: Float!
+    surface_water: Float!
+    terrain: String!
+}
