@@ -34,11 +34,11 @@ export class Specie extends Base {
 
   @ManyToOne(type => Planet, planet => planet.species)
   homeworld: Promise<Planet>
-
+  
   @OneToMany(type => Person, person => person.specie)
   people: Promise<Person[]>
 
-  @ManyToMany(type => Film, film => film.planets)
+  @ManyToMany(type => Film, film => film.species)
   @JoinTable()
   films: Promise<Film[]>
 }

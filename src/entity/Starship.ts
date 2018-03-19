@@ -18,7 +18,6 @@ export class Starship extends Transport {
   @Column() starship_class: string
 
   @ManyToMany(type => Person, person => person.starships)
-  @JoinTable()
   pilots: Promise<Person[]>
 
   @ManyToMany(type => Film, film => film.starships)

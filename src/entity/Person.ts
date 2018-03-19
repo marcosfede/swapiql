@@ -6,7 +6,12 @@ import {
   JoinTable,
   ManyToOne,
 } from 'typeorm'
-import { Film, Base, Vehicle, Planet, Starship, Specie } from '.'
+import { Base } from './Base'
+import { Vehicle } from './Vehicle'
+import { Planet } from './Planet'
+import { Starship } from './Starship'
+import { Specie } from './Specie'
+import { Film } from './Film'
 
 @Entity()
 export class Person extends Base {
@@ -33,9 +38,8 @@ export class Person extends Base {
   @JoinTable()
   films: Promise<Film>[]
 
-  @ManyToMany(type => Specie, specie => specie.people)
-  @JoinTable()
-  specie: Promise<Specie[]>
+  @ManyToOne(type => Specie, specie => specie.people)
+  specie: Promise<Specie>
 
   @ManyToMany(type => Starship, starship => starship.pilots)
   @JoinTable()

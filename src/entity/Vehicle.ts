@@ -16,7 +16,6 @@ export class Vehicle extends Transport {
   @Column() vehicle_class: string
 
   @ManyToMany(type => Person, person => person.vehicles)
-  @JoinTable()
   pilots: Promise<Person[]>
 
   @ManyToMany(type => Film, film => film.vehicles)
