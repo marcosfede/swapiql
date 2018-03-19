@@ -3,13 +3,14 @@ import { createConnection } from 'typeorm'
 import { GraphQLServer } from 'graphql-yoga'
 import * as compression from 'compression'
 // import { ApolloEngine } from 'apollo-engine'
+import { importSchema } from 'graphql-import'
 
 import { resolvers } from './resolvers'
 
 createConnection()
   .then(async connection => {
     const server = new GraphQLServer({
-      typeDefs: './src/schema.graphql',
+      typeDefs: importSchema('./src/schema.graphql'),
       resolvers,
     })
     server.express.use(compression())
