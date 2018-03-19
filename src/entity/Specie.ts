@@ -1,12 +1,4 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToOne,
-  Column,
-  ManyToMany,
-  JoinTable,
-} from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, OneToMany, ManyToOne, Column, ManyToMany, JoinTable } from 'typeorm'
 
 import { Base } from './Base'
 import { Person } from './Person'
@@ -34,7 +26,7 @@ export class Specie extends Base {
 
   @ManyToOne(type => Planet, planet => planet.species)
   homeworld: Promise<Planet>
-  
+
   @OneToMany(type => Person, person => person.specie)
   people: Promise<Person[]>
 

@@ -1,12 +1,4 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  OneToMany,
-  ManyToOne,
-  Column,
-  ManyToMany,
-  JoinTable,
-} from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, OneToMany, ManyToOne, Column, ManyToMany, JoinTable } from 'typeorm'
 import { Person } from './Person'
 import { Film } from './Film'
 import { Base } from './Base'

@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  TableInheritance,
-  DiscriminatorColumn,
-  DiscriminatorValue,
-} from 'typeorm'
+import { Column, Entity, TableInheritance, DiscriminatorColumn, DiscriminatorValue } from 'typeorm'
 import { Base } from './Base'
 
 export abstract class Transport extends Base {
