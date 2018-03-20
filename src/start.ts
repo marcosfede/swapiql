@@ -6,12 +6,17 @@ import * as compression from 'compression'
 import { importSchema } from 'graphql-import'
 
 import resolvers from './resolvers'
+import createLoaders from './loaders';
+import { Film } from './entity';
 
 createConnection()
   .then(async connection => {
     const server = new GraphQLServer({
       typeDefs: importSchema('./src/schema/schema.graphql'),
       resolvers,
+      context: {
+        loaders: createLoaders()
+      }
     })
     server.express.use(compression())
 
