@@ -24,6 +24,9 @@ export class Person extends Base {
 
   @Column() skin_color: string
 
+  @Column({ nullable: true })
+  homeworldId: number
+
   @ManyToOne(type => Planet, planet => planet.residents)
   homeworld: Promise<Planet>
 

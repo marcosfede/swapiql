@@ -6,8 +6,8 @@ import * as compression from 'compression'
 import { importSchema } from 'graphql-import'
 
 import resolvers from './resolvers'
-import createLoaders from './loaders';
-import { Film } from './entity';
+import createLoaders from './loaders'
+import { Film, Planet, Person } from './entity'
 
 createConnection()
   .then(async connection => {
@@ -15,14 +15,15 @@ createConnection()
       typeDefs: importSchema('./src/schema/schema.graphql'),
       resolvers,
       context: {
-        loaders: createLoaders()
-      }
+        loaders: createLoaders(),
+      },
     })
     server.express.use(compression())
 
     server
       .start({ tracing: true, cacheControl: true })
       .then(() => console.log(`Server started`))
+      .then(() => console.log(" ****************************** "))
       .catch(e => console.error(e))
   })
   .catch(error => console.log(error))

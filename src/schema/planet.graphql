@@ -9,7 +9,7 @@ type Planet {
     name: String!
     orbital_period: Float!
     population: Int!
-    residents: [Person!]!
+    residents: [Person!]
     rotation_period: Float!
     surface_water: Float!
     terrain: String!

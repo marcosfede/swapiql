@@ -7,5 +7,5 @@ export const queries = {
 }
 
 export const fields = {
-  
+  homeworld: async (person, params, {loaders}) => loaders.planetLoader.load(person.homeworldId)
 }
