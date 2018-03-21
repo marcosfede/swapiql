@@ -2,10 +2,11 @@ import { getRepository } from "typeorm";
 import { Specie } from "../entity";
 
 export const queries = {
-  species: async (_, { id }) => getRepository(Specie).findOneById(id),
-  specie: async () => getRepository(Specie).find(),
+  specie: async (_, { id }) => getRepository(Specie).findOneById(id),
+  species: async () => getRepository(Specie).find(),
 }
 
 export const fields = {
-  
+  people: (specie, params, {loaders}) => loaders.personLoaderBySpecieIds.load(specie.id),
+  homeworld: (specie, params, {loaders}) => loaders.planetLoader.load(specie.planetId)
 }

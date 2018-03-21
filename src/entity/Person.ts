@@ -34,6 +34,9 @@ export class Person extends Base {
   @JoinTable()
   films: Promise<Film[]>
 
+  @Column({ nullable: true })
+  specieId: number
+
   @ManyToOne(type => Specie, specie => specie.people)
   specie: Promise<Specie>
 

@@ -4,10 +4,12 @@ import { GraphQLServer } from 'graphql-yoga'
 import * as compression from 'compression'
 // import { ApolloEngine } from 'apollo-engine'
 import { importSchema } from 'graphql-import'
+import * as Dataloader from 'dataloader'
 
 import resolvers from './resolvers'
 import createLoaders from './loaders'
 import { Film, Planet, Person } from './entity'
+
 
 createConnection()
   .then(async connection => {

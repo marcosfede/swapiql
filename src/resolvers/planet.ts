@@ -7,5 +7,6 @@ export const queries = {
 }
 
 export const fields = {
-  residents: async (planet, params, {loaders}) => loaders.personLoaderByPlanetIds.load(planet.id)
+  residents: async (planet, params, {loaders}) => loaders.personLoaderByPlanetIds.load(planet.id),
+  species: async (planet, params, {loaders}) => loaders.specieLoaderByPlanetIds.load(planet.id)
 }

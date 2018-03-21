@@ -4,7 +4,7 @@ type Planet {
     created: Date!
     diameter: Float!
     edited: Date!
-    films: [Film!]!
+    films: [Film!]
     gravity: Float!
     name: String!
     orbital_period: Float!
@@ -13,4 +13,5 @@ type Planet {
     rotation_period: Float!
     surface_water: Float!
     terrain: String!
+    species: [Specie!]
 }
