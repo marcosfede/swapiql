@@ -1337,6 +1337,12 @@ expand-tilde@^2.0.0, expand-tilde@^2.0.2:
   dependencies:
     homedir-polyfill "^1.0.1"
 
+express-rate-limit@^2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/express-rate-limit/-/express-rate-limit-2.11.0.tgz#092122218c86eddb56fb350f431e522fb8024ea9"
+  dependencies:
+    defaults "^1.0.3"
+
 express-request-proxy@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/express-request-proxy/-/express-request-proxy-2.0.0.tgz#01919aec61e89a0f824fa5e6e733b8e063c9d64d"
@@ -1853,6 +1859,12 @@ graphql-config@2.0.1, graphql-config@^2.0.1:
     js-yaml "^3.10.0"
     lodash "^4.17.4"
     minimatch "^3.0.4"
+
+graphql-depth-limit@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/graphql-depth-limit/-/graphql-depth-limit-1.1.0.tgz#59fe6b2acea0ab30ee7344f4c75df39cc18244e8"
+  dependencies:
+    arrify "^1.0.1"
 
 graphql-extensions@^0.0.x:
   version "0.0.8"
