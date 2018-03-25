@@ -16,3 +16,6 @@ export const fields = {
   films: (starship, params, { loaders }) => loaders.filmLoaderByStarshipIds.load(starship.id),
   pilots: (starship, params, { loaders }) => loaders.personLoaderByStarshipIds.load(starship.id),
 }
+
+export const subscriptions = {
+}

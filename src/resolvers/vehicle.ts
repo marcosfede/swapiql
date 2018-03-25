@@ -16,3 +16,6 @@ export const fields = {
   films: (vehicle, params, { loaders }) => loaders.filmLoaderBySpecieIds.load(vehicle.id),
   pilots: (vehicle, params, { loaders }) => loaders.personLoaderByVehicleIds.load(vehicle.id),
 }
+
+export const subscriptions = {
+}

@@ -17,3 +17,7 @@ export const fields = {
   homeworld: (specie, params, { loaders }) => (specie.planetId ? loaders.planetLoader.load(specie.planetId) : null),
   films: (specie, params, { loaders }) => loaders.filmLoaderBySpecieIds.load(specie.id),
 }
+
+
+export const subscriptions = {
+}

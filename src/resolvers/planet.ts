@@ -17,3 +17,7 @@ export const fields = {
   species: async (planet, params, { loaders }) => loaders.specieLoaderByPlanetIds.load(planet.id),
   films: async (planet, params, { loaders }) => loaders.filmLoaderByPlanetIds.load(planet.id),
 }
+
+
+export const subscriptions = {
+}

@@ -19,3 +19,14 @@ export const fields = {
   species: (film, params, { loaders }) => loaders.specieLoaderByFilmIds.load(film.id),
   vehicles: (film, params, { loaders }) => loaders.vehicleLoaderByFilmIds.load(film.id),
 }
+
+export const subscriptions = {
+  // newFilms: {
+  //   subscribe: (_, params, {pubsub}) => {
+  //     setInterval(() => {
+  //       pubsub.publish('new_film', { newFilms: getRepository(Film).findOne()})
+  //     }, 2000)
+  //     return pubsub.asyncIterator('new_film')
+  //   }
+  // }
+}

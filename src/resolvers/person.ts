@@ -24,3 +24,7 @@ export const fields = {
   starships: (person, params, { loaders }) => loaders.starshipLoaderByPersonIds.load(person.id),
   vehicles: (person, params, { loaders }) => loaders.vehicleLoaderByPersonIds.load(person.id),
 }
+
+
+export const subscriptions = {
+}

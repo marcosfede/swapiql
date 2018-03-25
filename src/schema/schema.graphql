@@ -20,3 +20,7 @@ type Query{
   planet(id: ID!): Planet
   planets(limit: Int): [Planet!]!
 }
+
+type Subscription {
+  newFilms: Film!
+}

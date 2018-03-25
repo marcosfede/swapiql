@@ -3,7 +3,7 @@ import * as RateLimit from 'express-rate-limit'
 import * as depthLimit from 'graphql-depth-limit'
 // import { ApolloEngine } from 'apollo-engine'
 import { importSchema } from 'graphql-import'
-import { GraphQLServer } from 'graphql-yoga'
+import { GraphQLServer, PubSub } from 'graphql-yoga'
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 import createLoaders from './loaders'
@@ -11,12 +11,14 @@ import resolvers from './resolvers'
 
 createConnection()
   .then(async connection => {
+    const pubsub = new PubSub()
     const server = new GraphQLServer({
       typeDefs: importSchema('./src/schema/schema.graphql'),
       resolvers,
       context: {
         loaders: createLoaders(),
-      },
+        pubsub
+      }
     })
     server.express.use(compression())
     const limiter = new RateLimit({
