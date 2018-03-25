@@ -1,5 +1,5 @@
-import { getRepository } from "typeorm";
-import { Person } from "../entity";
+import { getRepository } from 'typeorm'
+import { Person } from '../entity'
 
 export const queries = {
   person: async (_, { id }) => getRepository(Person).findOneById(id),
@@ -7,6 +7,9 @@ export const queries = {
 }
 
 export const fields = {
-  homeworld: (person, params, {loaders}) => person.homeworldId ? loaders.planetLoader.load(person.homeworldId): null,
-  specie: (person, params, {loaders}) => person.specieId ? loaders.specieLoader.load(person.specieId) : null
+  homeworld: (person, params, {loaders}) => person.homeworldId ? loaders.planetLoader.load(person.homeworldId) : null,
+  specie: (person, params, {loaders}) => person.specieId ? loaders.specieLoader.load(person.specieId) : null,
+  films: (person, params, {loaders}) => loaders.filmLoaderByCharacterIds.load(person.id),
+  starships: (person, params, {loaders}) => loaders.starshipLoaderByPersonIds.load(person.id),
+  vehicles: (person, params, {loaders}) => loaders.vehicleLoaderByPersonIds.load(person.id),
 }

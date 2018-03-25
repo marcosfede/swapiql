@@ -1,5 +1,5 @@
-import { getRepository } from "typeorm";
-import { Starship } from "../entity";
+import { getRepository } from 'typeorm'
+import { Starship } from '../entity'
 
 export const queries = {
   starship: async (_, { id }) => getRepository(Starship).findOneById(id),
@@ -7,5 +7,6 @@ export const queries = {
 }
 
 export const fields = {
-  
+  films: (starship, params, {loaders}) => loaders.filmLoaderByStarshipIds.load(starship.id),
+  pilots: (starship, params, {loaders}) => loaders.personLoaderByStarshipIds.load(starship.id),
 }

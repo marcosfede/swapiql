@@ -1,15 +1,39 @@
-import 'reflect-metadata'
-import { createConnection } from 'typeorm'
-import { GraphQLServer } from 'graphql-yoga'
 import * as compression from 'compression'
 // import { ApolloEngine } from 'apollo-engine'
-import { importSchema } from 'graphql-import'
-import * as Dataloader from 'dataloader'
+import {importSchema} from 'graphql-import'
+import {GraphQLServer} from 'graphql-yoga'
+import 'reflect-metadata'
+import {createConnection, getRepository} from 'typeorm'
 
-import resolvers from './resolvers'
+import {Film} from './entity'
 import createLoaders from './loaders'
-import { Film, Planet, Person } from './entity'
+import resolvers from './resolvers'
 
+class DefaultDict {
+  private map: Map<number, any[]>
+  constructor() {
+    this.map = new Map()
+  }
+  public add(to, id) {
+    let current = this.map.get(to)
+    if (!current) {
+      current = []
+    }
+    current.push(id)
+    this.map.set(to, current)
+  }
+
+  public get(id) {
+    return this.map.get(id)
+  }
+
+  public toString() {
+    for (const key of this.map.keys()) {
+      const valueIds = this.map.get(key).map(value => value.id)
+      console.log(key, valueIds)
+    }
+  }
+}
 
 createConnection()
   .then(async connection => {
@@ -23,9 +47,9 @@ createConnection()
     server.express.use(compression())
 
     server
-      .start({ tracing: true, cacheControl: true })
+      .start({tracing: true, cacheControl: true})
       .then(() => console.log(`Server started`))
-      .then(() => console.log(" ****************************** "))
+      .then(() => console.log(' ****************************** '))
       .catch(e => console.error(e))
   })
   .catch(error => console.log(error))

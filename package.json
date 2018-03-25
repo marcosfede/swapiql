@@ -31,6 +31,7 @@
     "dev": "npm-run-all --parallel start playground",
     "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect src/start.ts",
     "playground": "graphql playground",
+    "import": "ts-node fixtures/import.ts",
     "prettier": "prettier-eslint --write \"src/**/*.+(js|jsx|ts|tsx)\""
   }
 }
