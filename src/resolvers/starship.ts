@@ -3,7 +3,13 @@ import { Starship } from '../entity'
 
 export const queries = {
   starship: async (_, { id }) => getRepository(Starship).findOneById(id),
-  starships: async () => getRepository(Starship).find(),
+  starships: async (_, {limit}) => {
+    const opts: any = {}
+    if (limit) {
+      opts.take = limit
+    }
+    return getRepository(Starship).find(opts)
+  }
 }
 
 export const fields = {

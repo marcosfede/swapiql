@@ -3,7 +3,13 @@ import { Planet } from '../entity'
 
 export const queries = {
   planet: async (_, { id }) => getRepository(Planet).findOneById(id),
-  planets: async () => getRepository(Planet).find(),
+  planets: async (_, {limit}) => {
+    const opts: any = {}
+    if (limit) {
+      opts.take = limit
+    }
+    return getRepository(Planet).find(opts)
+  }
 }
 
 export const fields = {

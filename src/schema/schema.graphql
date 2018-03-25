@@ -9,15 +9,15 @@ scalar Date
 
 type Query{
   person(id: ID!): Person
-  people(name: String): [Person!]!
+  people(limit: Int): [Person!]!
   film(id: ID!): Film
-  films(title: String): [Film!]!
+  films(limit: Int): [Film!]!
   starship(id: ID!): Starship
-  starships(name: String, model: String): [Starship!]!
+  starships(limit: Int): [Starship!]!
   vehicle(id: ID!): Vehicle
-  vehicles(name: String, model: String): [Vehicle!]!
+  vehicles(limit: Int): [Vehicle!]!
   specie(id: ID): Specie
-  species(name: String): [Specie!]!
+  species(limit: Int): [Specie!]!
   planet(id: ID!): Planet
-  planets(name: String): [Planet!]!
+  planets(limit: Int): [Planet!]!
 }

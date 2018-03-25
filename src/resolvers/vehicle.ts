@@ -3,7 +3,13 @@ import { Vehicle } from '../entity'
 
 export const queries = {
   vehicle: async (_, { id }) => getRepository(Vehicle).findOneById(id),
-  vehicles: async () => getRepository(Vehicle).find(),
+  vehicles: async (_, {limit}) => {
+    const opts: any = {}
+    if (limit) {
+      opts.take = limit
+    }
+    return getRepository(Vehicle).find(opts)
+  }
 }
 
 export const fields = {

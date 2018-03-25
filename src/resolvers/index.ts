@@ -1,5 +1,3 @@
-import { getRepository } from 'typeorm'
-import { Person as PersonEntity } from '../entity/Person'
 import * as Film from './film'
 import * as Person from './person'
 import * as Planet from './planet'

@@ -3,7 +3,13 @@ import { Film } from '../entity'
 
 export const queries = {
   film: async (_, { id }) => getRepository(Film).findOneById(id),
-  films: async () => getRepository(Film).find(),
+  films: async (_, {limit}) => {
+    const opts: any = {}
+    if (limit) {
+      opts.take = limit
+    }
+    return getRepository(Film).find(opts)
+  }
 }
 
 export const fields = {

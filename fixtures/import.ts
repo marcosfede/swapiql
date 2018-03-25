@@ -1,7 +1,7 @@
+import { omit, pick } from 'ramda'
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
-import { Film, Person, Specie, Starship, Planet, Vehicle } from '../src/entity'
-import { omit, pick } from 'ramda'
+import { Film, Person, Planet, Specie, Starship, Vehicle } from '../src/entity'
 const fixtures = require('.')
 let {
   films,
