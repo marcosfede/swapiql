@@ -3,9 +3,9 @@ type Specie{
     average_height: Float!
     average_lifespan: Float!
     classification: String!
-    created: Date!
+    created: DateTime!
     designation: String!
-    edited: Date!
+    edited: DateTime!
     eye_colors: String!
     hair_colors: String!
     homeworld: Planet

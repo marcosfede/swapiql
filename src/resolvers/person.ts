@@ -13,12 +13,14 @@ export const queries = {
 }
 
 export const fields = {
-  homeworld: (person, params, {loaders}) => {
-    if (!person.homeworldId) { return null }
+  homeworld: (person, params, { loaders }) => {
+    if (!person.homeworldId) {
+      return null
+    }
     return loaders.planetLoader.load(person.homeworldId)
   },
-  specie: (person, params, {loaders}) => person.specieId ? loaders.specieLoader.load(person.specieId) : null,
-  films: (person, params, {loaders}) => loaders.filmLoaderByCharacterIds.load(person.id),
-  starships: (person, params, {loaders}) => loaders.starshipLoaderByPersonIds.load(person.id),
-  vehicles: (person, params, {loaders}) => loaders.vehicleLoaderByPersonIds.load(person.id),
+  specie: (person, params, { loaders }) => (person.specieId ? loaders.specieLoader.load(person.specieId) : null),
+  films: (person, params, { loaders }) => loaders.filmLoaderByCharacterIds.load(person.id),
+  starships: (person, params, { loaders }) => loaders.starshipLoaderByPersonIds.load(person.id),
+  vehicles: (person, params, { loaders }) => loaders.vehicleLoaderByPersonIds.load(person.id),
 }

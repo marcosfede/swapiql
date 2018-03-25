@@ -4,8 +4,7 @@
 # import Specie from 'specie.graphql'
 # import Starship from 'starship.graphql'
 # import Vehicle from 'vehicle.graphql'
-
-scalar Date
+scalar DateTime
 
 type Query{
   person(id: ID!): Person

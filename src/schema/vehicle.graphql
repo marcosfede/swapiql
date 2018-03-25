@@ -3,9 +3,9 @@ type Vehicle{
     cargo_capacity: Int!
     consumables: String!
     cost_in_credits: Int!
-    created: Date!
+    created: DateTime!
     crew: Int!
-    edited: Date!
+    edited: DateTime!
     length: Float!
     manufacturer: String!
     max_atmosphering_speed: Float!

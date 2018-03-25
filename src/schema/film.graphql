@@ -1,14 +1,14 @@
 type Film {
     id: ID!
     characters: [Person!]
-    created: Date!
+    created: DateTime!
     director: String!
-    edited: Date!
+    edited: DateTime!
     episode_id: ID!
     opening_crawl: String!
     planets: [Planet!]
     producer: String!
-    release_date: Date!
+    release_date: DateTime!
     species: [Specie!]
     starships: [Starship!]
     title: String!

@@ -19,5 +19,5 @@ export default {
   Planet: Planet.fields,
   Specie: Specie.fields,
   Starship: Starship.fields,
-  Vehicle: Vehicle.fields
+  Vehicle: Vehicle.fields,
 }

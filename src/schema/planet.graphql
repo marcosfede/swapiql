@@ -1,9 +1,9 @@
 type Planet {
     id: ID!
     climate: String!
-    created: Date!
+    created: DateTime!
     diameter: Float!
-    edited: Date!
+    edited: DateTime!
     films: [Film!]
     gravity: Float!
     name: String!

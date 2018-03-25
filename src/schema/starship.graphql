@@ -4,9 +4,9 @@ type Starship{
     cargo_capacity: Int!
     consumables: String!
     cost_in_credits: Int!
-    created: Date!
+    created: DateTime!
     crew: Int!
-    edited: Date!
+    edited: DateTime!
     hyperdrive_rating: Float!
     length: Float!
     manufacturer: String!
