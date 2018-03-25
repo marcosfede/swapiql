@@ -21,7 +21,7 @@ createConnection()
     server.express.use(compression())
     const limiter = new RateLimit({
       windowMs: 24 * 60 * 60 * 1000, // 24 hours
-      max: 2000, // limit each IP to 2000 requests per windowMs
+      max: 1000, // limit each IP to 1000 requests per windowMs
       delayMs: 0 // disable delaying - full speed until the max limit is reached
     })
     // only if you're behind a reverse proxy (Heroku, Bluemix, AWS if you use an ELB, custom Nginx setup, etc)
