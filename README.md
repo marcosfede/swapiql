@@ -1,7 +1,10 @@
-# Awesome Project Build with TypeORM
-        
-Steps to run this project:
+# Node Star Wars GraphQL API + React Apollo Client
 
-1. Run `npm i` command
-2. Run `docker-compose up` command
-3. Run `npm start` command
+## Tech
+
+ -  Typescript
+ -  Nodejs
+ -  React
+ -  Apollo Client
+ -  Graphql Yoga
+ -  Typeorm
