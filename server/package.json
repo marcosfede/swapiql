@@ -11,12 +11,12 @@
     "nodemon": "^1.17.1",
     "npm-run-all": "^4.1.2",
     "prettier-eslint-cli": "^4.7.1",
-    "ramda": "^0.25.0",
     "ts-node": "3.3.0",
     "tslint": "^5.9.1",
     "typescript": "2.5.2"
   },
   "dependencies": {
+    "ramda": "^0.25.0",
     "apollo-engine": "^1.0.2",
     "compression": "^1.7.2",
     "dataloader": "^1.4.0",

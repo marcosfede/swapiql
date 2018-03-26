@@ -5,12 +5,6 @@
   ],
   "ordered-imports": false,
   "rules": {
-    "eofline": false,
-    "indent": [
-      true,
-      "spaces",
-      2
-    ],
     "object-literal-sort-keys": false,
     "quotemark": [
       true,
@@ -21,7 +15,8 @@
       true,
       "never"
     ],
-    "arrow-parens": [true, "ban-single-arg-parens"],
+    "arrow-parens": false,
+    "interface-name": false,
     "no-var-requires": false,
     "no-empty-interface": false,
     "no-empty": false,
