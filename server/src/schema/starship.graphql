@@ -1,19 +1,19 @@
 type Starship{
     id: ID!
     MGLT: String!
-    cargo_capacity: Int!
+    cargo_capacity: String!
     consumables: String!
-    cost_in_credits: Int!
+    cost_in_credits: String!
     created: DateTime!
-    crew: Int!
+    crew: String!
     edited: DateTime!
-    hyperdrive_rating: Float!
-    length: Float!
+    hyperdrive_rating: Float
+    length: String!
     manufacturer: String!
     max_atmosphering_speed: String!
     model: String!
     name: String!
-    passengers: Int!
+    passengers: String!
     films: [Film!]
     pilots: [Person!]
     starship_class: String!
