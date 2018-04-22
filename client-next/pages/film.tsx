@@ -43,6 +43,11 @@ export default withData(({ url }) => {
           return (
             <div className="film">
               <div className="title b">{film.title}</div>
+              <div>{film.director}</div>
+              <div>{film.episode_id}</div>
+              <div>{film.opening_crawl}</div>
+              <div>{film.producer}</div>
+              <div>{film.release_date}</div>
             </div>
           )
         }}

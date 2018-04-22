@@ -1,6 +1,12 @@
 import Link from 'next/link'
 
-export default ({ starships }) => (
+interface Props {
+  starships: {
+    id: number,
+    name: string
+  }[]
+}
+export default ({ starships }: Props) => (
   <div className="flex flex-column p2 w5">
     {starships.map(starship => (
       <Link href={`/starship?id=${starship.id}`} key={starship.id}>
