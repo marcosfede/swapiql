@@ -5,7 +5,7 @@ export default ({ children }) => (
   <div className="root h-100">
     <Head>
       <title>GraphQL-SWAPI</title>
-      <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css"/>
+      <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.1/css/tachyons.min.css" />
     </Head>
     <Header />
     <div className="content">
