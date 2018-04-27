@@ -1,7 +1,16 @@
 import Head from 'next/head'
-import Header from '../Header'
+import Router from 'next/router'
+import NProgress from 'nprogress'
 import globalStyles from '../../styles/global.styles'
+import Header from '../Header'
 import layoutStyles from './styles'
+
+Router.onRouteChangeStart = url => {
+  console.log(`Loading: ${url}`)
+  NProgress.start()
+}
+Router.onRouteChangeComplete = () => NProgress.done()
+Router.onRouteChangeError = () => NProgress.done()
 
 export default ({ children }) => (
   <div className="root mw9 ph3 ph5-l flex flex-column">
