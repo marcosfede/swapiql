@@ -1,19 +1,20 @@
-import Layout from '../components/Layout'
-import withData from '../lib/withData'
-import StarshipList from '../components/Starships/StarshipList'
 import gql from 'graphql-tag'
 import Query from '../components/Query'
+import QueryPage from '../components/QueryPage'
+import StarshipList from '../components/Starships/StarshipList'
+import withData from '../lib/withData'
 
-const starshipsQuery = gql`
-  {
-    starships {
-      id
-      name
-    }
+const query = `query allStarships {
+  starships {
+    id
+    name
   }
+}
 `
+
+const starshipsQuery = gql(query)
 export default withData(() => (
-  <Layout>
+  <QueryPage query={query}>
     <Query query={starshipsQuery}>{({ data }) => <StarshipList starships={data.starships} />}</Query>
-  </Layout>
+  </QueryPage>
 ))
