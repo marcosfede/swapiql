@@ -6,7 +6,7 @@ export default css`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-weight: 200;
+    font-weight: 300;
     text-align: center;
     touch-action: manipulation;
     cursor: pointer;
