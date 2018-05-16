@@ -17,7 +17,7 @@ export default () => (
               </Button>
             </a>
           </Link>
-          <Link prefetch href="/playground">
+          <Link href="/playground">
             <a>
               <Button primary className="w4">
                 Playground
