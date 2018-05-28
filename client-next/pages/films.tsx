@@ -1,27 +1,41 @@
-import Layout from '../components/Layout'
-import withData from '../lib/withData'
-import FilmList from '../components/Films/FilmList'
-import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import { Query } from 'react-apollo'
+import Link from 'next/link'
+import { Fragment } from 'react'
+import QueryPage from '../components/QueryPage'
+import List from '../components/EntityList/EntityList'
+import Item from '../components/EntityList/EntityItem'
+import SearchBox from '../components/SearchBox'
+import withData from '../lib/withData'
 
-const filmQuery = gql`
-{
+const query = `query allFilms {
   films {
     id
     title
   }
 }
 `
+const filmsQuery = gql(query)
+
 export default withData(() => (
-  <Layout>
-    <Query
-    query={filmQuery}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
-      return <FilmList films={data.films}/>
-    }}
-  </Query>
-  </Layout>
+  <QueryPage query={query}>
+    <Query query={filmsQuery}>
+      {({ loading, error, data }) => {
+        if (loading) return 'Loading'
+        if (error) return 'Error'
+        return (
+          <Fragment>
+            <SearchBox />
+            <List>
+              {data.films.map(film => (
+                <Link href={`/film?id=${film.id}`} key={film.id}>
+                  <Item content={film.title} />
+                </Link>
+              ))}
+            </List>
+          </Fragment>
+        )
+      }}
+    </Query>
+  </QueryPage>
 ))
