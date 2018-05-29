@@ -2,16 +2,16 @@ type Planet {
     id: ID!
     climate: String!
     created: DateTime!
-    diameter: Float!
+    diameter: String!
     edited: DateTime!
     films: [Film!]
     gravity: String!
     name: String!
-    orbital_period: Float!
+    orbital_period: String!
     population: String!
     residents: [Person!]
-    rotation_period: Float!
-    surface_water: Float!
+    rotation_period: String!
+    surface_water: String!
     terrain: String!
     species: [Specie!]
 }

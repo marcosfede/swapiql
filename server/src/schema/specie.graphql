@@ -1,7 +1,7 @@
 type Specie{
     id: ID!
-    average_height: Float!
-    average_lifespan: Float!
+    average_height: String!
+    average_lifespan: String!
     classification: String!
     created: DateTime!
     designation: String!

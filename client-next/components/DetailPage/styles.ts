@@ -19,12 +19,14 @@ export default css`
     padding-left: 15px;
     width: 69%;
     min-height: 25px;
+    text-transform: capitalize;
   }
   .detail-page .left {
     width: 40%;
     min-height: 25px;
     display:flex ;
     justify-content: flex-end;
+    text-transform: capitalize;
   }
   .detail-page .relation {
     height: 25px;

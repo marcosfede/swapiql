@@ -7,7 +7,7 @@ type Starship{
     created: DateTime!
     crew: String!
     edited: DateTime!
-    hyperdrive_rating: Float
+    hyperdrive_rating: String
     length: String!
     manufacturer: String!
     max_atmosphering_speed: String!
