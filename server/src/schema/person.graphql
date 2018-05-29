@@ -8,7 +8,7 @@ type Person{
     hair_color: String!
     height: Float!
     homeworld: Planet
-    mass: Float!
+    mass: String!
     name: String!
     skin_color: String!
     created: DateTime!

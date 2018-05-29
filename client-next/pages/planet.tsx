@@ -3,6 +3,7 @@ import { Query } from 'react-apollo'
 
 import withData from '../lib/withData'
 import QueryPage from '../components/QueryPage'
+import DetailPage from '../components/DetailPage/DetailPage'
 
 // TODO: species throw error here
 
@@ -10,9 +11,7 @@ const query = `query planet($id: ID!) {
   planet(id: $id) {
     id
     climate
-    created
     diameter
-    edited
     gravity
     name
     orbital_period
@@ -22,9 +21,11 @@ const query = `query planet($id: ID!) {
     terrain
     films {
       id
+      title
     }
     residents {
       id
+      name
     }
   }
 }
@@ -32,9 +33,21 @@ const query = `query planet($id: ID!) {
 const planetDetailQuery = gql(query)
 
 const PlanetDetail = ({ planet }) => (
-  <div className="planet">
-    <div>{planet.id}</div>
-  </div>
+  <DetailPage
+    entity={planet}
+    fields={[
+      'climate',
+      'diameter',
+      'gravity',
+      'orbital_period',
+      'population',
+      'rotation_period',
+      'surface_water',
+      'terrain',
+    ]}
+    relations={[{ name: 'films', title: 'title', url: '/film' }, { name: 'residents', title: 'name', url: '/person' }]}
+    title="name"
+  />
 )
 
 export default withData(({ url }) => {

@@ -10,20 +10,18 @@ export default () => (
       <div className="pa4-ns flex order-0 order-1-l flex-column w-50-l justify-center items-start-l items-center">
         <h1 className="text-primary f1">Choose your side</h1>
         <div className="flex flex-row mv3">
-          <Link prefetch href="/">
+          <Link prefetch href="/people">
             <a>
               <Button dashed className="w4 mr3">
                 Explore
               </Button>
             </a>
           </Link>
-          <Link href="/playground">
-            <a>
+            <a target="_blank" href="http://localhost:4000">
               <Button primary className="w4">
                 Playground
               </Button>
             </a>
-          </Link>
         </div>
       </div>
     <style jsx>{`

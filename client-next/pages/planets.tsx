@@ -21,7 +21,7 @@ export default withData(() => (
   <QueryPage query={query}>
     <Query query={planetsQuery}>
       {({ loading, error, data }) => {
-        if (loading) return 'Loading'
+        if (loading) return null
         if (error) return 'Error'
         return (
           <Fragment>

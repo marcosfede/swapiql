@@ -2,7 +2,7 @@ type Vehicle{
     id: ID!
     cargo_capacity: Int!
     consumables: String!
-    cost_in_credits: Int!
+    cost_in_credits: String!
     created: DateTime!
     crew: Int!
     edited: DateTime!

@@ -8,7 +8,7 @@ type Planet {
     gravity: String!
     name: String!
     orbital_period: Float!
-    population: Int!
+    population: String!
     residents: [Person!]
     rotation_period: Float!
     surface_water: Float!

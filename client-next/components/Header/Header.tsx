@@ -58,6 +58,9 @@ export default () => (
       nav a:last-child {
         margin-right: 0;
       }
+      i {
+        color: #D95468;
+      }
     `}</style>
   </header>
 )

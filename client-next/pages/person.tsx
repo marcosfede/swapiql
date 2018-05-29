@@ -3,6 +3,7 @@ import { Query } from 'react-apollo'
 
 import withData from '../lib/withData'
 import QueryPage from '../components/QueryPage'
+import DetailPage from '../components/DetailPage/DetailPage'
 
 const query = `query person($id: ID!) {
   person(id: $id) {
@@ -15,21 +16,25 @@ const query = `query person($id: ID!) {
     mass
     name
     skin_color
-    edited
     homeworld {
       id
+      name
     }
     films {
       id
+      title
     }
     specie {
       id
+      name
     }
     vehicles {
       id
+      name
     }
     starships {
       id
+      name
     }
   }
 }
@@ -37,9 +42,18 @@ const query = `query person($id: ID!) {
 const personDetailQuery = gql(query)
 
 const PersonDetail = ({ person }) => (
-  <div className="person">
-    <div>{person.id}</div>
-  </div>
+  <DetailPage
+    entity={person}
+    fields={['birth_year', 'eye_color', 'gender', 'hair_color', 'height', 'mass', 'skin_color']}
+    relations={[
+      { name: 'films', title: 'title', url: '/film' },
+      { name: 'homeworld', title: 'name', url: '/planet' },
+      { name: 'specie', title: 'name', url: '/specie' },
+      { name: 'vehicles', title: 'name', url: '/vehicle' },
+      { name: 'starships', title: 'name', url: '/starship' }
+    ]}
+    title="name"
+  />
 )
 
 export default withData(({ url }) => {

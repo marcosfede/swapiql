@@ -3,6 +3,7 @@ import { Query } from 'react-apollo'
 
 import withData from '../lib/withData'
 import QueryPage from '../components/QueryPage'
+import DetailPage from '../components/DetailPage/DetailPage'
 
 const query = `query vehicle($id: ID!) {
   vehicle(id: $id) {
@@ -10,9 +11,7 @@ const query = `query vehicle($id: ID!) {
     cargo_capacity
     consumables
     cost_in_credits
-    created
     crew
-    edited
     length
     manufacturer
     max_atmosphering_speed
@@ -21,20 +20,37 @@ const query = `query vehicle($id: ID!) {
     passengers
     pilots {
       id
+      name
     }
     films {
       id
+      title
     }
     vehicle_class
-    }
+  }
 }
 `
 const vehicleDetailQuery = gql(query)
 
 const VehicleDetail = ({ vehicle }) => (
-  <div className="vehicle">
-    <div>{vehicle.id}</div>
-  </div>
+  <DetailPage
+    entity={vehicle}
+    fields={[
+      'cargo_capacity',
+      'consumables',
+      'cost_in_credits',
+      'crew',
+      'hyperdrive_rating',
+      'length',
+      'manufacturer',
+      'max_atmosphering_speed',
+      'model',
+      'passengers',
+      'vehicle_class',
+    ]}
+    relations={[{ name: 'films', title: 'title', url: '/film' }, { name: 'pilots', title: 'name', url: '/person' }]}
+    title="name"
+  />
 )
 
 export default withData(({ url }) => {
@@ -43,7 +59,10 @@ export default withData(({ url }) => {
       <Query query={vehicleDetailQuery} variables={{ id: url.query.id }}>
         {({ loading, error, data }) => {
           if (loading) return 'Loading'
-          if (error) return 'Error'
+          if (error) {
+            console.error(error)
+            return 'Error'
+          }
           return <VehicleDetail vehicle={data.vehicle} />
         }}
       </Query>

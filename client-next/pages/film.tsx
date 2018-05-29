@@ -3,30 +3,36 @@ import { Query } from 'react-apollo'
 
 import withData from '../lib/withData'
 import QueryPage from '../components/QueryPage'
+import DetailPage from '../components/DetailPage/DetailPage'
 
 const query = `query film($id: ID!) {
   film(id: $id) {
     id
-    characters {
-      id
-    }
+    title
     director
     episode_id
     opening_crawl
-    planets {
-      id
-    }
     producer
     release_date
+    characters {
+      id
+      name
+    }
+    planets {
+      id
+      name
+    }
     species {
       id
+      name
     }
     starships {
       id
+      name
     }
-    title
     vehicles {
       id
+      name
     }
   }
 }
@@ -35,9 +41,18 @@ const query = `query film($id: ID!) {
 const filmDetailQuery = gql(query)
 
 const FilmDetail = ({ film }) => (
-  <div className="film">
-    <div>{film.id}</div>
-  </div>
+  <DetailPage
+    entity={film}
+    fields={['director', 'episode_id', 'opening_crawl', 'producer', 'release_date']}
+    relations={[
+      { name: 'characters', title: 'name', url: '/person' },
+      { name: 'planets', title: 'name', url: '/planet' },
+      { name: 'species', title: 'name', url: '/specie' },
+      { name: 'starships', title: 'name', url: '/starship' },
+      { name: 'vehicles', title: 'name', url: '/vehicle' },
+    ]}
+    title="title"
+  />
 )
 
 export default withData(({ url }) => {
