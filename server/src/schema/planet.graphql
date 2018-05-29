@@ -5,7 +5,7 @@ type Planet {
     diameter: Float!
     edited: DateTime!
     films: [Film!]
-    gravity: Float!
+    gravity: String!
     name: String!
     orbital_period: Float!
     population: Int!

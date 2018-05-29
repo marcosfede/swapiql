@@ -1,45 +1,51 @@
 import gql from 'graphql-tag'
-import withData from '../lib/withData'
-import Layout from '../components/Layout'
-import QueryView from '../components/QueryView';
+import { Query } from 'react-apollo'
 
-const starshipDetailQuery = gql`
-  query starship($id: ID!) {
-    starship(id: $id) {
+import withData from '../lib/withData'
+import QueryPage from '../components/QueryPage'
+
+const query = `query starship($id: ID!) {
+  starship(id: $id) {
+    id
+    MGLT
+    cargo_capacity
+    consumables
+    cost_in_credits
+    crew
+    hyperdrive_rating
+    length
+    manufacturer
+    max_atmosphering_speed
+    model
+    name
+    passengers
+    starship_class
+    films {
       id
-      MGLT
-      cargo_capacity
-      consumables
-      cost_in_credits
-      crew
-      hyperdrive_rating
-      length
-      manufacturer
-      max_atmosphering_speed
-      model
-      name
-      passengers
-      starship_class
-      films {
-        id
-      }
-      pilots {
-        id
-      }
+    }
+    pilots {
+      id
     }
   }
+}
 `
-const StarshipDetail = ({starship}) => (
+const starshipDetailQuery = gql(query)
+
+const StarshipDetail = ({ starship }) => (
   <div className="starship">
     <div>{starship.MGLT}</div>
   </div>
 )
 export default withData(({ url }) => {
   return (
-    <Layout>
-      <QueryView query={starshipDetailQuery} variables={{ id: url.query.id }}>
-        {StarshipDetail}
-      </QueryView>
-    </Layout>
+    <QueryPage query={query}>
+      <Query query={starshipDetailQuery} variables={{ id: url.query.id }}>
+        {({ loading, error, data }) => {
+          if (loading) return 'Loading'
+          if (error) return 'Error'
+          return <StarshipDetail starship={data.starship} />
+        }}
+      </Query>
+    </QueryPage>
   )
 })

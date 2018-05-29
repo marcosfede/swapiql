@@ -1,58 +1,55 @@
 import gql from 'graphql-tag'
-import withData from '../lib/withData'
-import Layout from '../components/Layout'
-import QueryView from '../components/QueryView'
+import { Query } from 'react-apollo'
 
-const filmDetailQuery = gql`
-  query film($id: ID!) {
-    film(id: $id) {
+import withData from '../lib/withData'
+import QueryPage from '../components/QueryPage'
+
+const query = `query film($id: ID!) {
+  film(id: $id) {
+    id
+    characters {
       id
-      characters {
-        id
-      }
-      director
-      episode_id
-      opening_crawl
-      planets {
-        id
-      }
-      producer
-      release_date
-      species {
-        id
-      }
-      starships {
-        id
-      }
-      title
-      vehicles {
-        id
-      }
+    }
+    director
+    episode_id
+    opening_crawl
+    planets {
+      id
+    }
+    producer
+    release_date
+    species {
+      id
+    }
+    starships {
+      id
+    }
+    title
+    vehicles {
+      id
     }
   }
+}
 `
+
+const filmDetailQuery = gql(query)
 
 const FilmDetail = ({ film }) => (
   <div className="film">
-    <div className="title b">{film.title}</div>
-    <div>{film.director}</div>
-    <div>{film.episode_id}</div>
-    <div>{film.opening_crawl}</div>
-    <div>{film.producer}</div>
-    <div>{film.release_date}</div>
-    <div>{film.characters.map(c => c.id)}</div>
-    <div>{film.planets.map(c => c.id).join(', ')}</div>
-    <div>{film.species.map(c => c.id).join(', ')}</div>
-    <div>{film.starships.map(c => c.id).join(', ')}</div>
-    <div>{film.vehicles.map(c => c.id).join(', ')}</div>
+    <div>{film.id}</div>
   </div>
 )
+
 export default withData(({ url }) => {
   return (
-    <Layout>
-      <QueryView query={filmDetailQuery} variables={{ id: url.query.id }}>
-        {FilmDetail}
-      </QueryView>
-    </Layout>
+    <QueryPage query={query}>
+      <Query query={filmDetailQuery} variables={{ id: url.query.id }}>
+        {({ loading, error, data }) => {
+          if (loading) return 'Loading'
+          if (error) return 'Error'
+          return <FilmDetail film={data.film} />
+        }}
+      </Query>
+    </QueryPage>
   )
 })

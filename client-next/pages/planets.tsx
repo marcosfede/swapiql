@@ -28,8 +28,10 @@ export default withData(() => (
             <SearchBox />
             <List>
               {data.planets.map(planet => (
-                <Link href={`/planet?id=${planet.id}`} key={planet.id}>
-                  <Item content={planet.name} />
+                <Link prefetch href={`/planet?id=${planet.id}`} key={planet.id}>
+                  <a >
+                    <Item content={planet.name} />
+                  </a>
                 </Link>
               ))}
             </List>

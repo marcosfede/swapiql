@@ -10,3 +10,22 @@ services:
       POSTGRES_PASSWORD: "test"
       POSTGRES_DB: "test"
 
+  front:
+    image: "node"
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client-next:/app
+    working_dir: /app
+    command: bash -c "yarn build && yarn start"
+
+  back:
+    depends_on:
+      - postgres
+    image: "node"
+    working_dir: /app
+    ports:
+      - "4000:4000"
+    command: "yarn start"
+    volumes:
+      - ./server:/app

@@ -48,7 +48,7 @@ export const personLoaderByPlanetIds = () => oneToManyLoader(Person, 'person', '
 // person to specie
 export const personLoaderBySpecieIds = () => oneToManyLoader(Person, 'person', 'specieId')
 // specie to planet
-export const specieLoaderByPlanetIds = () => oneToManyLoader(Specie, 'specie', 'planetId')
+export const specieLoaderByPlanetIds = () => oneToManyLoader(Specie, 'specie', 'homeworldId')
 // film to person
 export const filmLoaderByCharacterIds = () => manyToManyLoader(Film, 'film', 'characters')
 export const personLoaderByFilmIds = () => manyToManyLoader(Person, 'person', 'films')

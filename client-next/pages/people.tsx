@@ -28,8 +28,10 @@ export default withData(() => (
             <SearchBox />
             <List>
               {data.people.map(person => (
-                <Link href={`/person?id=${person.id}`} key={person.id}>
-                  <Item content={person.name} />
+                <Link prefetch href={`/person?id=${person.id}`} key={person.id}>
+                  <a >
+                    <Item content={person.name} />
+                  </a>
                 </Link>
               ))}
             </List>
