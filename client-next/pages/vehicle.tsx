@@ -59,10 +59,7 @@ export default withData(({ url }) => {
       <Query query={vehicleDetailQuery} variables={{ id: url.query.id }}>
         {({ loading, error, data }) => {
           if (loading) return null
-          if (error) {
-            console.error(error)
-            return 'Error'
-          }
+          if (error) return 'Error'
           return <VehicleDetail vehicle={data.vehicle} />
         }}
       </Query>
