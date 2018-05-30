@@ -39,7 +39,7 @@ export default ({ query }: Props) => (
         margin-right: 5px;
       }
       pre {
-        background-color: #262626;
+        background-color: #262626 !important;
         width: 100%;
         padding-top: 0;
         padding-bottom: 15px;
@@ -60,6 +60,8 @@ export default ({ query }: Props) => (
       pre > :global(code) :global(.line-numbers-rows) > :global(span):before {
         color: #8e8c8c;
       }
+
+      
     `}</style>
   </div>
 )
