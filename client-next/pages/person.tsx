@@ -61,7 +61,7 @@ export default withData(({ url }) => {
     <QueryPage query={query}>
       <Query query={personDetailQuery} variables={{ id: url.query.id }}>
         {({ loading, error, data }) => {
-          if (loading) return 'Loading'
+          if (loading) return null
           if (error) return 'Error'
           return <PersonDetail person={data.person} />
         }}

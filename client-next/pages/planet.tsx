@@ -55,7 +55,7 @@ export default withData(({ url }) => {
     <QueryPage query={query}>
       <Query query={planetDetailQuery} variables={{ id: url.query.id }}>
         {({ loading, error, data }) => {
-          if (loading) return 'Loading'
+          if (loading) return null
           if (error) return 'Error'
           return <PlanetDetail planet={data.planet} />
         }}
