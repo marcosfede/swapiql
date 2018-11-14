@@ -30,7 +30,7 @@ export default () => (
       <Link prefetch href="/vehicles">
         <a>Vehicles</a>
       </Link>
-      <a className="text-secondary" href="https://github.com/matias-pierobon/swapiql" target="_blank">
+      <a className="text-secondary" href="https://github.com/marcosfede/graphql-swapi" target="_blank">
         <i className="devicon-github-plain" />
       </a>
     </nav>

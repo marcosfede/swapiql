@@ -11,21 +11,21 @@ services:
       POSTGRES_DB: "test"
 
   front:
-    image: "node"
+    build: './client-next'
     ports:
       - "3000:3000"
     volumes:
-      - ./client-next:/app
-    working_dir: /app
-    command: bash -c "yarn build && yarn start"
+      - ./client-next:/app:delegated
+      - /app/node_modules
+    command: "yarn dev"
 
   back:
     depends_on:
       - postgres
-    image: "node"
-    working_dir: /app
+    build: './server'
     ports:
       - "4000:4000"
     command: "yarn start"
     volumes:
-      - ./server:/app
+      - ./server:/app:delegated
+      - /app/node_modules
