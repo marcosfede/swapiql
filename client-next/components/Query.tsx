@@ -1,11 +1,13 @@
 import { Query } from 'react-apollo'
 
-export default ({ children, query }) => (
-  <Query query={query}>
-    {({ loading, error, data }) => {
-      if (loading) return 'Loading'
-      if (error) return 'Error'
-      return children({ data })
-    }}
-  </Query>
-)
+export default ({ children, query, ...rest }) => {
+  return (
+    <Query query={query} {...rest}>
+      {({ loading, error, data }) => {
+        if (loading) return null
+        if (error) return <p>Error :(</p>
+        return children({data})
+      }}
+    </Query>
+  )
+}

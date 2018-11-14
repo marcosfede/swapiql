@@ -1,10 +1,10 @@
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
 import Link from 'next/link'
 import { Fragment } from 'react'
 import QueryPage from '../components/QueryPage'
 import List from '../components/EntityList/EntityList'
 import Item from '../components/EntityList/EntityItem'
+import Query from '../components/Query'
 import SearchBox from '../components/SearchBox'
 import withData from '../lib/withData'
 
@@ -20,9 +20,7 @@ const planetsQuery = gql(query)
 export default withData(() => (
   <QueryPage query={query}>
     <Query query={planetsQuery}>
-      {({ loading, error, data }) => {
-        if (loading) return null
-        if (error) return 'Error'
+      {({ data }) => {
         return (
           <Fragment>
             <SearchBox />

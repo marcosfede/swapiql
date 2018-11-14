@@ -1,9 +1,10 @@
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
 
 import withData from '../lib/withData'
 import QueryPage from '../components/QueryPage'
 import DetailPage from '../components/DetailPage/DetailPage'
+import Query from '../components/Query'
+
 
 const query = `query starship($id: ID!) {
   starship(id: $id) {
@@ -59,9 +60,7 @@ export default withData(({ url }) => {
   return (
     <QueryPage query={query}>
       <Query query={starshipDetailQuery} variables={{ id: url.query.id }}>
-        {({ loading, error, data }) => {
-          if (loading) return 'Loading'
-          if (error) return 'Error'
+        {({ data }) => {
           return <StarshipDetail starship={data.starship} />
         }}
       </Query>
