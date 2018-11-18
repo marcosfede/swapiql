@@ -1,9 +1,9 @@
-import { PrimaryGeneratedColumn, Column, PrimaryColumn } from 'typeorm'
+import { Column, PrimaryColumn } from 'typeorm'
 
 export abstract class Base {
-  @PrimaryColumn() id: number
+  @PrimaryColumn() public id: number
 
-  @Column('timestamp') created: Date
+  @Column('timestamp') public created: Date
 
-  @Column('timestamp') edited: Date
+  @Column('timestamp') public edited: Date
 }

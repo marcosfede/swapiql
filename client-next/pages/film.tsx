@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
 
 import withData from '../lib/withData'
 import QueryPage from '../components/QueryPage'
+import Query from '../components/Query'
 import DetailPage from '../components/DetailPage/DetailPage'
 
 const query = `query film($id: ID!) {
@@ -59,9 +59,7 @@ export default withData(({ url }) => {
   return (
     <QueryPage query={query}>
       <Query query={filmDetailQuery} variables={{ id: url.query.id }}>
-        {({ loading, error, data }) => {
-          if (loading) return null
-          if (error) return 'Error'
+        {({ data }) => {
           return <FilmDetail film={data.film} />
         }}
       </Query>

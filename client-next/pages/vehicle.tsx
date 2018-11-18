@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
-import { Query } from 'react-apollo'
 
 import withData from '../lib/withData'
+import Query from '../components/Query'
 import QueryPage from '../components/QueryPage'
 import DetailPage from '../components/DetailPage/DetailPage'
 
@@ -57,9 +57,7 @@ export default withData(({ url }) => {
   return (
     <QueryPage query={query}>
       <Query query={vehicleDetailQuery} variables={{ id: url.query.id }}>
-        {({ loading, error, data }) => {
-          if (loading) return null
-          if (error) return 'Error'
+        {({ data }) => {
           return <VehicleDetail vehicle={data.vehicle} />
         }}
       </Query>
