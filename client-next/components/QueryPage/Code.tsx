@@ -61,7 +61,7 @@ export default ({ query }: Props) => (
         color: #8e8c8c;
       }
 
-      
+
     `}</style>
   </div>
 )

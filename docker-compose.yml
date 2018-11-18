@@ -1,31 +1,32 @@
 version: '3'
 services:
-
   postgres:
-    image: "postgres:latest"
+    image: 'postgres:latest'
     ports:
-      - "5432:5432"
+      - '5432:5432'
     environment:
-      POSTGRES_USER: "test"
-      POSTGRES_PASSWORD: "test"
-      POSTGRES_DB: "test"
+      POSTGRES_USER: 'test'
+      POSTGRES_PASSWORD: 'test'
+      POSTGRES_DB: 'test'
 
   front:
     build: './client-next'
     ports:
-      - "3000:3000"
+      - '3000:3000'
+    environment:
+      API_URL: http://localhost:4000
     volumes:
       - ./client-next:/app:delegated
       - /app/node_modules
-    command: "yarn dev"
+    command: 'yarn dev'
 
   back:
     depends_on:
       - postgres
     build: './server'
     ports:
-      - "4000:4000"
-    command: "yarn start"
+      - '4000:4000'
+    command: 'yarn start'
     volumes:
       - ./server:/app:delegated
       - /app/node_modules

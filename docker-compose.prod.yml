@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+    env_file: .env
+
+  front:
+    build:
+      context: './client-next'
+      dockerfile: Dockerfile.prod
+    environment:
+      API_URL: http://localhost:4000
+    ports:
+      - '3000:3000'
+    command: 'yarn start'
+
+  back:
+    depends_on:
+      - postgres
+    build: './server'
+    ports:
+      - '4000:4000'
+    command: 'yarn start'

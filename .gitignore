@@ -7,3 +7,5 @@ temp/
 .DS_Store
 client/
 .next
+*.env
+env
