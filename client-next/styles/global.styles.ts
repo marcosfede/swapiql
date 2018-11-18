@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-export default css`
+export default css.global`
   :root {
     --main-bg-color: #1a1a1a;
     --main-fg-color: #b3b3b3;

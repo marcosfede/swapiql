@@ -1,12 +1,11 @@
 import Link from 'next/link'
-import css from 'styled-jsx/css'
-import Logo from './swapiql.svg'
+// import Logo from './swapiql.svg'
 
 export default () => (
   <header className="flex flex-column flex-row-l justify-between items-center">
     <Link prefetch href="/">
       <a className="brand flex items-center">
-        <Logo />
+        {/* <Logo /> */}
         Swapiql
       </a>
     </Link>

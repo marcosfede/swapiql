@@ -10,11 +10,13 @@ services:
       POSTGRES_DB: 'test'
 
   front:
-    build: './client-next'
+    build:
+      context: './client-next'
+      dockerfile: 'Dockerfile'
+      args:
+        - REACT_APP_API_URL=http://localhost:4000
     ports:
       - '3000:3000'
-    environment:
-      API_URL: http://localhost:4000
     volumes:
       - ./client-next:/app:delegated
       - /app/node_modules
