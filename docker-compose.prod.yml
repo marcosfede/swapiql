@@ -3,6 +3,8 @@ services:
   postgres:
     image: 'postgres:latest'
     env_file: .env
+    volumes:
+      - db_dev:/var/lib/postgresql/data
 
   front:
     build:
@@ -17,7 +19,16 @@ services:
   back:
     depends_on:
       - postgres
-    build: './server'
+    build:
+      context: './server'
+      args:
+        - POSTGRES_USER
+        - POSTGRES_DB
+        - POSTGRES_PASSWORD
+    env_file: .env
     ports:
       - '4000:4000'
     command: 'yarn start'
+
+volumes:
+  ? db_dev

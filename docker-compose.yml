@@ -2,12 +2,11 @@ version: '3'
 services:
   postgres:
     image: 'postgres:latest'
+    volumes:
+      - db_dev:/var/lib/postgresql/data
     ports:
       - '5432:5432'
-    environment:
-      POSTGRES_USER: 'test'
-      POSTGRES_PASSWORD: 'test'
-      POSTGRES_DB: 'test'
+    env_file: .local.env
 
   front:
     build:
@@ -25,10 +24,19 @@ services:
   back:
     depends_on:
       - postgres
-    build: './server'
+    build:
+      context: './server'
+      args:
+        - POSTGRES_USER
+        - POSTGRES_PASSWORD
+        - POSTGRES_DB
+    env_file: .local.env
     ports:
       - '4000:4000'
     command: 'yarn start'
     volumes:
       - ./server:/app:delegated
       - /app/node_modules
+
+volumes:
+  ? db_dev

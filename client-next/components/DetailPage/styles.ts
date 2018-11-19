@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'
 
-export default css`
+export default css.global`
   .detail-page {
     width: 100%;
   }

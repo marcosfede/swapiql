@@ -1,4 +1,4 @@
-FROM node
+FROM node:11
 
 ARG REACT_APP_API_URL
 

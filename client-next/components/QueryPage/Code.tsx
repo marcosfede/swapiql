@@ -11,8 +11,8 @@ export default ({ query }: Props) => (
       <span />
       <span />
     </div>
-    <pre className="lang-graphql line-numbers">
-      <PrismCode component="code" className="lang-graphql line-numbers">
+    <pre className="line-numbers language-graphql">
+      <PrismCode component="code" className="line-numbers language-graphql">
         {query}
       </PrismCode>
     </pre>
