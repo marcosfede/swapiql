@@ -8,4 +8,5 @@ temp/
 client/
 .next
 *.env
+!.local.env
 env
