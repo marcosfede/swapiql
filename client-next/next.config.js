@@ -13,5 +13,8 @@ module.exports = withTypescript({
     }
 
     return config
+  },
+  publicRuntimeConfig: {
+    API_URL: process.env.API_URL
   }
 })

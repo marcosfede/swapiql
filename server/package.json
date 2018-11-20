@@ -21,12 +21,14 @@
     "graphql-depth-limit": "^1.1.0",
     "graphql-import": "^0.4.5",
     "graphql-yoga": "1.14.12",
+    "helmet": "^3.15.0",
     "pg": "^7.3.0",
     "ramda": "^0.25.0",
     "reflect-metadata": "^0.1.10",
     "typeorm": "0.1.16"
   },
   "scripts": {
+    "prod": "NODE_ENV=production ts-node src/start.ts",
     "start": "nodemon -e ts,graphql -x ts-node -r dotenv/config src/start.ts",
     "dev": "npm-run-all --parallel start playground",
     "debug": "nodemon -e ts,graphql -x ts-node -r dotenv/config --inspect=0.0.0.0:9229 src/start.ts",

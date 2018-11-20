@@ -4,6 +4,7 @@ import * as depthLimit from 'graphql-depth-limit'
 // import { ApolloEngine } from 'apollo-engine'
 import { importSchema } from 'graphql-import'
 import { GraphQLServer, PubSub } from 'graphql-yoga'
+import * as helmet from 'helmet'
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 import createLoaders from './loaders'
@@ -17,9 +18,10 @@ createConnection()
       resolvers,
       context: {
         loaders: createLoaders(),
-        pubsub
-      }
+        pubsub,
+      },
     })
+    server.express.use(helmet())
     server.express.use(compression())
     const limiter = new RateLimit({
       windowMs: 24 * 60 * 60 * 1000, // 24 hours

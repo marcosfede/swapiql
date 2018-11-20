@@ -2,9 +2,13 @@ import { ApolloClient } from 'apollo-boost'
 import { HttpLink } from 'apollo-boost'
 import { InMemoryCache } from 'apollo-boost'
 import fetch from 'isomorphic-unfetch'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
+const { API_URL } = publicRuntimeConfig
 
 let apolloClient = null
-console.log({ REACT_APP_API_URL: process.env.REACT_APP_API_URL })  // only defined on the server...
+
 // Polyfill fetch() on the server (used by apollo-client)
 if (!(process as any).browser) {
   ;(global as any).fetch = fetch
@@ -15,7 +19,7 @@ function create(initialState) {
     connectToDevTools: (process as any).browser,
     ssrMode: !(process as any).browser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      uri: process.env.REACT_APP_API_URL || 'http://localhost:4000', // Server URL (must be absolute)
+      uri: API_URL, // Server URL (must be absolute)
       credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache().restore(initialState || {}),
