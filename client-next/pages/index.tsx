@@ -21,7 +21,7 @@ export default () => (
               </Button>
             </a>
           </Link>
-            <a target="_blank" href={API_URL}>
+            <a target="_blank" href={API_URL + 'playground/'}>
               <Button primary className="w4">
                 Playground
               </Button>

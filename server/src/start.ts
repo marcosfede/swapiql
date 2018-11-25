@@ -10,6 +10,8 @@ import { createConnection } from 'typeorm'
 import createLoaders from './loaders'
 import resolvers from './resolvers'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 createConnection()
   .then(async connection => {
     const pubsub = new PubSub()
@@ -38,6 +40,8 @@ createConnection()
         tracing: true,
         cacheControl: true,
         port: 4000,
+        endpoint: isProd ? '/api/' : '/',
+        playground: isProd ? '/api/playground/' : '/playground/',
         validationRules: [depthLimit(10)],
       })
       .then(() => console.log(`Server started`))
