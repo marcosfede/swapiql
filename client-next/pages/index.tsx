@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import Layout from '../components/Layout'
 import Button from '../components/Button'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
+const { API_URL } = publicRuntimeConfig
 
 export default () => (
   <Layout>
@@ -17,7 +21,7 @@ export default () => (
               </Button>
             </a>
           </Link>
-            <a target="_blank" href="http://localhost:4000">
+            <a target="_blank" href={API_URL}>
               <Button primary className="w4">
                 Playground
               </Button>
