@@ -11,3 +11,6 @@
 
 ## Start production server
 `docker-compose -f docker-compose.prod.yml  up -d --build`
+
+## Import data
+`docker-compose -f docker-compose.prod.yml exec back yarn run import`
