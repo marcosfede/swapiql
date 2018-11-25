@@ -40,8 +40,8 @@ createConnection()
         tracing: true,
         cacheControl: true,
         port: 4000,
-        endpoint: isProd ? '/' : '/',
-        playground: isProd ? '/playground/' : '/playground/',
+        endpoint: isProd ? '/api/' : '/',
+        playground: isProd ? '/api/playground/' : '/playground/',
         validationRules: [depthLimit(10)],
       })
       .then(() => console.log(`Server started`))
