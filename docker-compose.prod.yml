@@ -5,7 +5,7 @@ services:
     env_file: .env
     restart: always
     volumes:
-      - db_prod:/var/lib/postgresql/data
+      - ./db_prod:/var/lib/postgresql/data
 
   front:
     build:
@@ -32,6 +32,3 @@ services:
     ports:
       - '4000:4000'
     command: 'yarn prod'
-
-volumes:
-  ? db_prod
