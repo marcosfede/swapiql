@@ -2,7 +2,7 @@ import React from 'react'
 import Document, { Head, Main, NextScript } from 'next/document'
 import flush from 'styled-jsx/server'
 
-const GA_TRACKING_ID = '123123'
+const GA_TRACKING_ID = 'UA-129772604-1'
 
 export default class extends Document {
   static getInitialProps({ renderPage }) {
@@ -27,7 +27,7 @@ export default class extends Document {
           <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato:100,300" rel="stylesheet" />
           <script src="/static/prism.js" async />
 
-          {/* <script
+          <script
             dangerouslySetInnerHTML={{
               __html: `
               window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
@@ -36,7 +36,7 @@ export default class extends Document {
               `,
             }}
           />
-          <script async src="https://www.google-analytics.com/analytics.js" /> */}
+          <script async src="https://www.google-analytics.com/analytics.js" />
         </Head>
         <body>
           <Main />
