@@ -12,7 +12,7 @@ services:
       context: './client-next'
       dockerfile: Dockerfile.prod
       args:
-        - API_URL=http://swapiql.xyz/api/
+        - API_URL=https://swapiql.xyz/api/
     restart: always
     ports:
       - '4001:3000'

@@ -19,7 +19,7 @@ function create(initialState) {
     connectToDevTools: (process as any).browser,
     ssrMode: !(process as any).browser, // Disables forceFetch on the server (so queries are only run once)
     link: new HttpLink({
-      uri: API_URL, // Server URL (must be absolute)
+      uri: API_URL || '/api/', // Server URL (must be absolute)
       credentials: 'same-origin', // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache().restore(initialState || {}),
