@@ -8,3 +8,6 @@
  -  Apollo Client
  -  Graphql Yoga
  -  Typeorm
+
+## Start production server
+`docker-compose -f docker-compose.prod.yml  up -d --build`
