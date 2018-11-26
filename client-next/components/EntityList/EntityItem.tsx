@@ -10,7 +10,7 @@ export default ({ content }) => (
         .title {
           cursor: pointer;
           font-size: 25px;
-          font-weight: 100;
+          font-weight: 300;
           margin-left: 60px;
           transition: all 250ms ease-in-out;
         }

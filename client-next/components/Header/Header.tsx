@@ -40,7 +40,7 @@ export default () => (
       .brand {
         font-family: 'starjedi';
         font-size: 20px;
-        font-weight: 100;
+        font-weight: 300;
       }
       .brand :global(svg) {
         height: 65px;

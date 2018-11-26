@@ -30,7 +30,7 @@ export default () => (
       </div>
     <style jsx>{`
       h1 {
-        font-weight: 100;
+        font-weight: 300;
         margin-top: 0;
       }
       .darth-vader {

@@ -11,7 +11,7 @@ export default css.global`
   .detail-page .field {
     display: flex;
     flex-direction: row;
-    font-weight: lighter;
+    font-weight: 300;
     font-size: 18px;
     color: #B3B3B3;
   }
