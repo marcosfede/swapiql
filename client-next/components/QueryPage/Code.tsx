@@ -1,3 +1,4 @@
+import '../../static/prism'
 import PrismCode from 'react-prism'
 
 type Props = {

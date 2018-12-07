@@ -24,7 +24,6 @@ export default class extends Document {
             rel="stylesheet"
             href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"
           />
-          <script src="/static/prism.js" async />
           <link href="https://fonts.googleapis.com/css?family=Fira+Mono|Lato:300" rel="stylesheet" />
 
           <script
