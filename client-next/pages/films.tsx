@@ -23,7 +23,7 @@ export default withData(() => (
       {({ data }) => {
         return (
           <Fragment>
-            <SearchBox />
+            {/* <SearchBox /> */}
             <List>
               {data.films.map(film => (
                 <Link prefetch href={`/film?id=${film.id}`} key={film.id}>

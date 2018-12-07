@@ -23,7 +23,7 @@ export default withData(() => (
       {({ data }) => {
         return (
           <Fragment>
-            <SearchBox />
+            {/* <SearchBox /> */}
             <List>
               {data.planets.map(planet => (
                 <Link prefetch href={`/planet?id=${planet.id}`} key={planet.id}>

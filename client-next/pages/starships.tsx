@@ -23,7 +23,7 @@ export default withData(() => (
       {({ data }) => {
         return (
           <Fragment>
-          <SearchBox />
+          {/* <SearchBox /> */}
           <List>
             {data.starships.map(starship => (
               <Link prefetch href={`/starship?id=${starship.id}`} key={starship.id}>
