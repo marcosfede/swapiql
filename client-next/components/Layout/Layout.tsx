@@ -5,6 +5,7 @@ import globalStyles from '../../styles/global.styles'
 import Header from '../Header'
 import layoutStyles from './styles'
 
+
 Router.onRouteChangeStart = url => {
   console.log(`Loading: ${url}`)
   NProgress.start()
@@ -14,6 +15,9 @@ Router.onRouteChangeError = () => NProgress.done()
 
 export default ({ children }) => (
   <div className="root mw9 ph3 ph5-l flex flex-column">
+    <Head>
+      <title>SWAPI-QL</title>
+    </Head>
     <Header />
     <div className="flex flex-column flex-row-l flex-auto">{children}</div>
 
