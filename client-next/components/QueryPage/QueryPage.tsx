@@ -8,6 +8,9 @@ export default ({ query, children }) => (
       <Code query={query} />
     </div>
     <style jsx scoped>{`
+      .result-container {
+        margin-bottom: 20px;
+      }
       @media only screen and (min-width: 500px){
         .result-container {
           padding: 32px;
