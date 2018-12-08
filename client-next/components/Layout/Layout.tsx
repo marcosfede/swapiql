@@ -8,7 +8,6 @@ import 'tachyons'
 
 
 Router.onRouteChangeStart = url => {
-  console.log(`Loading: ${url}`)
   NProgress.start()
 }
 Router.onRouteChangeComplete = () => NProgress.done()
