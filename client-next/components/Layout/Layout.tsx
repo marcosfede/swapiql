@@ -4,6 +4,7 @@ import NProgress from 'nprogress'
 import globalStyles from '../../styles/global.styles'
 import Header from '../Header'
 import layoutStyles from './styles'
+import 'tachyons'
 
 
 Router.onRouteChangeStart = url => {

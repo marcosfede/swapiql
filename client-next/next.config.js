@@ -2,7 +2,9 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { ANALYZE } = process.env
 
 const withTypescript = require('@zeit/next-typescript')
-module.exports = withTypescript({
+const withCSS = require('@zeit/next-css')
+
+module.exports = withCSS(withTypescript({
   webpack: function (config, { isServer }) {
     if (ANALYZE) {
       config.plugins.push(new BundleAnalyzerPlugin({
@@ -17,4 +19,4 @@ module.exports = withTypescript({
   publicRuntimeConfig: {
     API_URL: process.env.API_URL
   }
-})
+}))

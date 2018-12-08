@@ -39,4 +39,10 @@ export default css.global`
   .detail-page .field-name, .detail-page .field-value, .detail-page .relation {
     margin: 5px 0;
   }
+
+  .detail-page * {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `

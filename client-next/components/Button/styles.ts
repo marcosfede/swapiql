@@ -32,4 +32,14 @@ export default css`
   .button.dashed {
     border-style: dashed;
   }
+
+  .button {
+    width: 7rem;
+  }
+
+  @media only screen and (min-width: 500px){
+    .button {
+      width: 8rem
+    }
+  }
 `
